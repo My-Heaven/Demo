@@ -23,7 +23,7 @@ const StudentInputModal = ({visible, onClose, onSubmit, student, isEdit}) => {
     console.log(name, classs);
 
     const handleSubmit = () =>{
-        if(!name.trim() && !classs.trim()) return onClose();
+        if(!name.trim() || !classs.trim()) return onClose();
         if(isEdit){
             onSubmit(name, classs)
         }else{
