@@ -5,9 +5,9 @@ import { View, Text, Modal, StyleSheet, TextInput, Button, Keyboard } from 'reac
 const StudentInputModal = ({visible, onClose, onSubmit, student, isEdit}) => {
     const [name, setName] = useState('');
     const [classs, setClass] = useState('');
-    const handleModalClose = () =>{
-        Keyboard.dismiss();
-    };
+    // const handleModalClose = () =>{
+    //     Keyboard.dismiss();
+    // };
 
     useEffect(() =>{
         if(isEdit){
@@ -51,8 +51,8 @@ const StudentInputModal = ({visible, onClose, onSubmit, student, isEdit}) => {
                
                 <View style={styles.saveButton}>
                 <Button title='Save' onPress={handleSubmit}/>
-                <Button title='Close' onPress={closeModal}/>
                 </View>
+                <Button title='Close' onPress={closeModal}/>
             </View>
             
         </Modal>
@@ -75,6 +75,7 @@ const styles = StyleSheet.create({
     },
     saveButton:{
         display: 'flex',
+        marginBottom: 10,
         marginTop: 10,
         justifyContent: 'center',
     },

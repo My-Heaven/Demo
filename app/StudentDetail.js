@@ -1,6 +1,6 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import React, { useState } from 'react'
-import { View, Text, Button } from 'react-native'
+import { View, Text, Button, StyleSheet } from 'react-native'
 import { useStudents } from './contexts/StudentProvider';
 import StudentInputModal from './StudentInputModal';
 
@@ -48,9 +48,11 @@ const StudentDetail = props => {
     return (
         <>
         <View>
-            <Text>{student.name}</Text>
-            <Text>{student.classs}</Text>
-            <Button title='Edit' onPress = {openEditModal}/>
+            <Text style={{fontSize: 40}}>Name: {student.name}</Text>
+            <Text style={{fontSize: 40}}>Class: {student.classs}</Text>
+            <View style={styles.buttonEdit}>
+                <Button title='Edit' onPress = {openEditModal}/>
+            </View>
             <Button title='Delete' onPress={deleteStudent}/>
         </View>
         <StudentInputModal isEdit={isEdit} student={student} onClose={handleOnClose} onSubmit={handleUpdate} visible={showModal} />
@@ -60,4 +62,10 @@ const StudentDetail = props => {
 
 };
 
+const styles = StyleSheet.create({
+    buttonEdit: {
+        marginBottom: 10, 
+        marginTop: 10,
+    },
+})
 export default StudentDetail
